@@ -873,6 +873,7 @@ Citizen.CreateThread(function()
 			local playerRadioActive = false
 			local playerCall = 0
 			local playerCallSpeaker = false
+			local hidden = IsHudHidden()
 
 			if playerData ~= nil then
 				playerMode = playerData.mode or 2
@@ -890,6 +891,7 @@ Citizen.CreateThread(function()
 				radioActive = playerRadioActive,
 				call = mumbleConfig.callChannelNames[playerCall] ~= nil and mumbleConfig.callChannelNames[playerCall] or playerCall,
 				speaker = playerCallSpeaker,
+				hide = hidden,
 			})
 
 			Citizen.Wait(200)

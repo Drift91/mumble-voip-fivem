@@ -48,11 +48,27 @@
 				text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 			}
 		</style>
+		
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 		<script type="text/javascript">
 			let speakerEnabled = true;
 			
 			window.addEventListener("message", function(event) {
 				var item = event.data;
+				
+				if (item.hide) {
+					$(".info-container").hide();
+					$(".talking").hide();
+					$(".watermark").hide();
+					$(".radio-list-container").hide();
+				} else {
+					
+					$(".info-container").show();
+					$(".talking").show();
+					$(".watermark").show();
+					$(".radio-list-container").show();
+				}
 
 				if (item.sound && item.volume) {
 					let snd = document.getElementById(item.sound);
